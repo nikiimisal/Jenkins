@@ -18,10 +18,9 @@ It includes all steps — from EC2 setup, Jenkins installation, pipeline creatio
 5. [Website Details](#website-details)  
 6. [Screenshots](#screenshots)  
 7. [Troubleshooting](#troubleshooting)  
-8. [Useful Commands](#useful-commands)  
-9. [Conclusion](#conclusion)  
-10. [Author](#author)  
-11. [License](#license)
+8. [Useful Commands](#useful-commands)   
+9. [Author](#author)  
+10. [License](#license)
 
 ## 🧩 Project Overview
 
