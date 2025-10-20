@@ -119,42 +119,51 @@ git clone https://github.com/iam-ganeshjadhav/Jenkins-CICD.git
 1. Go to Jenkins Dashboard → **New Item**
 2. Select **Freestyle Project**
 3. Enter name (e.g., `Jenkins-CICD`)
-4. Under **Source Code Management** → Choose **Git**
-   Repository URL: `https://github.com/iam-ganeshjadhav/Jenkins-CICD.git`
+4. (optional) Under **Source Code Management** → Choose **Git**
+   Repository URL: `https://github.com/nikiimisal/Jenkins-CICD.git`
 5. Under **Build Steps** → Choose **Execute Shell**
 ```bash
-sudo cp -r * /var/www/html/
+sudo mkdir /home/ubuntu/nikhil-dir
 ```
-6. Click **Save** → **Build Now**  
-7. If permissions error occurs:
-```bash
-sudo chmod -R 777 /var/www/html/
-```
+6. Click **Save** → **Build Now**
+7. Click consol output and see whats the problem   
+8. If permissions error occurs:
+## Problem Solver Section
+9. Then go to linux console (Powershell Console)
+   --- At that point, you will need to make changes in the sudoers file to grant the necessary permissions for Jenkins.
 
-### 9️⃣ Deploy Static Website
-Visit: `http://<your-ec2-public-ip>/` to see your **Jenkins Installation Guide Website** live.
+       cd /etc
+       sudo vim sudoers           or
+       sudo nano sudoers
 
-## 🌐 Website Details
-- Step-by-step Jenkins installation guide for Ubuntu, RHEL, Windows, macOS, Docker
-- Copy buttons for commands
-- Stylish gradients and responsive design
-- Troubleshooting and security notes
+<br>or
 
-## 🌐 Used Code For the Wesite
-[Website Code ](code.html)
+       sudo nano /etc/sudoers
+
+If an error occurs while making changes to the file (when you need to write or modify it),
+`W10: Warning: Changing a randomly file`
+it means you don’t have permission to edit the file — so make sure to grant the required permissions first.
+
+10. So, grant only the specific permissions that are actually required.
+
+        ls -l sudoers
+        sudo chmod 740 sudoers
+        ls -l sudoers
+11. Now, make the necessary changes in the sudoers file.
+
+          jenkins ALL = (ALL:ALL) NOPASSWD:ALL
+>Earlier, whenever I practiced or ran this project, I had to make changes manually using commands. But at this point you only save that changes, & you can directly go to the Jenkins server and click **“Build”** — the issue should be resolved.
+>From here on in future, the system will continue to undergo changes, so make sure to stay updated.
 
 
 
-## 🖼️ Screenshots
-![Jenkins Dashboard](IMG/3.jpg)
-![Website Home](IMG/2.jpg)
 
 ## 🧰 Troubleshooting
 | Issue | Possible Fix |
 |-------|--------------|
 | Jenkins not starting | Check Java version with `java -version` |
 | Port 8080 blocked | Update AWS security group rules |
-| Permission denied | Use `sudo chmod -R 777 /var/www/html/` |
+| Permission denied | Use `sudo chmod 740`   |
 | Wrong admin password | `sudo cat /var/lib/jenkins/secrets/initialAdminPassword` |
 | Git fetch failed | Verify repo URL or branch name |
 
@@ -167,14 +176,12 @@ sudo systemctl stop jenkins
 sudo apt remove --purge jenkins -y
 ```
 
-## 🏁 Conclusion
-Complete Jenkins CI/CD setup on AWS EC2 with automated static website deployment. Ideal for learning **DevOps**, **CI/CD**, and **AWS automation**.
 
 ## 👨‍💻 Author
-**Ganesh Jadhav**  
-BCA (Information Technology)  
-📧 [Email Me](jadhavg9370@gmail.com)  
-🌐 [GitHub Profile](https://github.com/iam-ganeshjadhav)
+**nikiimisal**  
+ 
+📧 [Email Me](nik0misal@gmail.com)  
+🌐 [GitHub Profile](https://github.com/nikiimisal)
 
 ## 🏷️ License
 Open-source, free for educational purposes.
