@@ -14,13 +14,11 @@ It includes all steps — from EC2 setup, Jenkins installation, pipeline creatio
 1. [Project Overview](#project-overview)  
 2. [Architecture Diagram](#architecture-diagram)  
 3. [Requirements](#requirements)  
-4. [Step-by-Step Setup](#step-by-step-setup)  
-5. [Website Details](#website-details)  
-6. [Screenshots](#screenshots)  
-7. [Troubleshooting](#troubleshooting)  
-8. [Useful Commands](#useful-commands)   
-9. [Author](#author)  
-10. [License](#license)
+4. [Step-by-Step Setup](#step-by-step-setup)    
+6. [Troubleshooting](#troubleshooting)  
+7. [Useful Commands](#useful-commands)   
+8. [Author](#author)  
+9. [License](#license)
 
 ## 🧩 Project Overview
 
@@ -62,7 +60,7 @@ This project sets up a **Jenkins CI/CD environment** on an **AWS EC2 Ubuntu inst
 
 ### 2️⃣ Connect via SSH
 ```bash
-ssh -i your-key.pem ubuntu@<ec2-public-ip>
+ssh -i your-key.pem ubuntu@<public-ip>
 ```
 
 ### 3️⃣ Update System and Install Java
@@ -154,7 +152,7 @@ it means you don’t have permission to edit the file — so make sure to grant 
 >Earlier, whenever I practiced or ran this project, I had to make changes manually using commands. But at this point you only save that changes, & you can directly go to the Jenkins server and click **“Build”** — the issue should be resolved.
 >From here on in future, the system will continue to undergo changes, so make sure to stay updated.
 
-
+12. Hers is done . now check build process is succesfully proceed
 
 
 ## 🧰 Troubleshooting
