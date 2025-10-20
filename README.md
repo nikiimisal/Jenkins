@@ -11,10 +11,11 @@ It includes all steps — from EC2 setup, Jenkins installation, pipeline creatio
 
 ## 📘 Table of Contents
 
-1. [Project Overview](#project-overview)  
-2. [Architecture Diagram](#architecture-diagram)  
-3. [Requirements](#requirements)  
-4. [Step-by-Step Setup](#step-by-step-setup)    
+1. [Project Overview](#project-overview)
+2. [First Step Cross the Buildup-Process](#first-step-cross-the-buildup-proces)
+3. [Architecture Diagram](#architecture-diagram)  
+4. [Requirements](#requirements)  
+5. [Step-by-Step Setup](#step-by-step-setup)    
 6. [Troubleshooting](#troubleshooting)  
 7. [Useful Commands](#useful-commands)   
 8. [Author](#author)  
