@@ -52,12 +52,18 @@ This project sets up a **Jenkins CI/CD environment** on an **AWS EC2 Ubuntu inst
 - Login to **AWS Console** → **EC2 Dashboard**  
 - Click **Launch Instance**  
 - Choose **Ubuntu Server 22.04 LTS**  
-- Select instance type: `t2.micro` (Free Tier)  
+- Select instance type: `t2.micro` (Free Tier)
+  <p align="center">
+  <img src="https://github.com/nikiimisal/Jenkins/blob/main/img/Screenshot%202025-10-17%20160934.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
 - Configure security group:
   - Port **22 (SSH)** → Anywhere (or My IP)
   - Port **8080 (Jenkins)** → Anywhere
   - Port **80 (HTTP)** → Anywhere
 - Launch instance and download `.pem` key
+<p align="center">
+  <img src="https://github.com/nikiimisal/Jenkins/blob/main/img/Screenshot%202025-10-17%20161019.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
 
 ### 2️⃣ Connect via SSH
 ```bash
@@ -71,12 +77,23 @@ Change the hostname so that it’s easier to identify which server it is — bec
     sudo hostnamectl hostname jenkins
     exit
     ssh -i your-key.pem ubuntu@<ec2-public-ip>
+
+<p align="center">
+  <img src="https://github.com/nikiimisal/Jenkins/blob/main/img/Screenshot%202025-10-17%20162010.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
 <br>
     
     sudo apt update
     sudo apt install -y openjdk-17-jdk
     java -version
 
+<p align="center">
+  <img src="https://github.com/nikiimisal/Jenkins/blob/main/img/Screenshot%202025-10-17%20162151.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
+
+<p align="center">
+  <img src="https://github.com/nikiimisal/Jenkins/blob/main/img/Screenshot%202025-10-17%20163219.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
 
 ### 4️⃣ Install Jenkins
 ```bash
@@ -101,10 +118,21 @@ sudo systemctl status jenkins
    ```bash
    sudo cat /var/lib/jenkins/secrets/initialAdminPassword
    ```
+
+<p align="center">
+  <img src="https://github.com/nikiimisal/Jenkins/blob/main/img/Screenshot%202025-10-17%20164756.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
+<p align="center">
+  <img src="https://github.com/nikiimisal/Jenkins/blob/main/img/Screenshot%202025-10-17%20165034.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
+
+
 2. Paste it in Jenkins UI (Unlock Jenkins)
 3. Install **Suggested Plugins**
 4. Create your **Admin User**
 5. Continue to Jenkins Dashboard
+
+       http://<ip>:8080
 
 ### 7️⃣ Setup Git and Clone Repository (Optional)
 ```bash
@@ -115,17 +143,26 @@ git clone https://github.com/iam-ganeshjadhav/Jenkins-CICD.git
 
 ### 8️⃣ Create Jenkins Job
 1. Go to Jenkins Dashboard → **New Item**
-2. Select **Freestyle Project**
-3. Enter name (e.g., `Jenkins-CICD`)
-4. (optional) Under **Source Code Management** → Choose **Git**
+   <p align="center">
+  <img src="https://github.com/nikiimisal/Jenkins/blob/main/img/Screenshot%202025-10-17%20165456.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
+3. Select **Freestyle Project**
+4. Enter name (e.g., `Jenkins-CICD`)
+5. (optional) Under **Source Code Management** → Choose **Git**
    Repository URL: `https://github.com/nikiimisal/Jenkins-CICD.git`
-5. Under **Build Steps** → Choose **Execute Shell**
+6. Under **Build Steps** → Choose **Execute Shell**
 ```bash
 sudo mkdir /home/ubuntu/nikhil-dir
 ```
 6. Click **Save** → **Build Now**
+  <p align="center">
+  <img src="https://github.com/nikiimisal/Jenkins/blob/main/img/Screenshot%202025-10-19%20091440.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>
 7. Click consol output and see whats the problem   
 8. If permissions error occurs:
+<p align="center">
+  <img src="https://github.com/nikiimisal/Jenkins/blob/main/img/Screenshot%202025-10-21%20122634.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p> 
 ## Problem Solver Section
 9. Then go to linux console (Powershell Console)
    --- At that point, you will need to make changes in the sudoers file to grant the necessary permissions for Jenkins.
@@ -133,6 +170,10 @@ sudo mkdir /home/ubuntu/nikhil-dir
        cd /etc
        sudo vim sudoers           or
        sudo nano sudoers
+   <p align="center">
+  <img src="https://github.com/nikiimisal/Jenkins/blob/main/img/Screenshot%202025-10-19%20092022.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>     
+
 
 <br>or
 
@@ -147,14 +188,25 @@ it means you don’t have permission to edit the file — so make sure to grant 
         ls -l sudoers
         sudo chmod 740 sudoers
         ls -l sudoers
-11. Now, make the necessary changes in the sudoers file.
+  <p align="center">
+  <img src=" https://github.com/nikiimisal/Jenkins/blob/main/img/Screenshot%202025-10-19%20092022.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>    
+   
+12. Now, make the necessary changes in the sudoers file.
 
           jenkins ALL = (ALL:ALL) NOPASSWD:ALL
+
+  <p align="center">
+  <img src="https://github.com/nikiimisal/Jenkins/blob/main/img/Screenshot%202025-10-20%20000517.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>     
+
 >Earlier, whenever I practiced or ran this project, I had to make changes manually using commands. But at this point you only save that changes, & you can directly go to the Jenkins server and click **“Build”** — the issue should be resolved.
 >From here on in future, the system will continue to undergo changes, so make sure to stay updated.
 
-12. Hers is done . now check build process is succesfully proceed
-
+12. Hers is done . now check build process is succesfully proceed 
+<p align="center">
+  <img src="https://github.com/nikiimisal/Jenkins/blob/main/img/Screenshot%202025-10-20%20000227.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+</p>   
 
 ## 🧰 Troubleshooting
 | Issue | Possible Fix |
