@@ -12,8 +12,8 @@ It includes all steps — from EC2 setup, Jenkins installation, pipeline creatio
 ## 📘 Table of Contents
 
 1. [Project Overview](#project-overview)
-2. [First Step Cross the Buildup-Process](#first-step-cross-the-buildup-proces)
-3. [Architecture Diagram](#architecture-diagram)  
+2. [Architecture Diagram](#architecture-diagram)  
+3. [First Step Cross the Buildup-Process](#first-step-cross-the-buildup-proces)
 4. [Requirements](#requirements)  
 5. [Step-by-Step Setup](#step-by-step-setup)    
 6. [Troubleshooting](#troubleshooting)  
@@ -36,6 +36,7 @@ This project sets up a **Jenkins CI/CD environment** on an **AWS EC2 Ubuntu inst
 
 ![Diagram](IMG/1.png)
 
+<h1> First Step Cross the Buildup-Process</h1>
 ## ⚙️ Requirements
 
 | Component | Description |
