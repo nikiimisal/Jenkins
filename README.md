@@ -49,18 +49,18 @@ This project sets up a **Jenkins CI/CD environment** on an **AWS EC2 Ubuntu inst
 ## 🧭 Step-by-Step Setup
 
 ### 1️⃣ Launch AWS EC2 Instance
-- Login to **AWS Console** → **EC2 Dashboard**  
-- Click **Launch Instance**  
-- Choose **Ubuntu Server 22.04 LTS**  
-- Select instance type: `t2.micro` (Free Tier)
+- Login to **AWS Console** → **EC2 Dashboard**  <br>
+- Click **Launch Instance**   <br>
+- Choose **Ubuntu Server 22.04 LTS**   <br>
+- Select instance type: `t2.micro` (Free Tier) <br>
   <p align="center">
   <img src="https://github.com/nikiimisal/Jenkins/blob/main/img/Screenshot%202025-10-17%20160934.png?raw=true" width="500" alt="Initialize Repository Screenshot">
 </p>
-- Configure security group:
-  - Port **22 (SSH)** → Anywhere (or My IP)
-  - Port **8080 (Jenkins)** → Anywhere
-  - Port **80 (HTTP)** → Anywhere
-- Launch instance and download `.pem` key
+- Configure security group: <br>
+  - Port **22 (SSH)** → Anywhere (or My IP) <br>
+  - Port **8080 (Jenkins)** → Anywhere <br>
+  - Port **80 (HTTP)** → Anywhere <br>
+- Launch instance and download `.pem` key <br>
 <p align="center">
   <img src="https://github.com/nikiimisal/Jenkins/blob/main/img/Screenshot%202025-10-17%20161019.png?raw=true" width="500" alt="Initialize Repository Screenshot">
 </p>
@@ -143,28 +143,31 @@ git clone https://github.com/iam-ganeshjadhav/Jenkins-CICD.git
 
 ### 8️⃣ Create Jenkins Job
 1. Go to Jenkins Dashboard → **New Item**
+   
    <p align="center">
   <img src="https://github.com/nikiimisal/Jenkins/blob/main/img/Screenshot%202025-10-17%20165456.png?raw=true" width="500" alt="Initialize Repository Screenshot">
-</p>
-3. Select **Freestyle Project**
-4. Enter name (e.g., `Jenkins-CICD`)
-5. (optional) Under **Source Code Management** → Choose **Git**
-   Repository URL: `https://github.com/nikiimisal/Jenkins-CICD.git`
-6. Under **Build Steps** → Choose **Execute Shell**
-```bash
-sudo mkdir /home/ubuntu/nikhil-dir
-```
+   </p>
+2. Select **Freestyle Project**<br>
+3. Enter name (e.g., `Jenkins-CICD`)<br>
+4. (optional) Under **Source Code Management** → Choose **Git**<br>
+   Repository URL: `**https://github.com/nikiimisal/Jenkins**`<br>
+5. Under **Build Steps** → Choose **Execute Shell**<br>
+
+     sudo mkdir /home/ubuntu/nikhil-dir
+
 6. Click **Save** → **Build Now**
   <p align="center">
   <img src="https://github.com/nikiimisal/Jenkins/blob/main/img/Screenshot%202025-10-19%20091440.png?raw=true" width="500" alt="Initialize Repository Screenshot">
 </p>
-7. Click consol output and see whats the problem   
+7. Click consol output and see whats the problem  <br>  
 8. If permissions error occurs:
 <p align="center">
   <img src="https://github.com/nikiimisal/Jenkins/blob/main/img/Screenshot%202025-10-21%20122634.png?raw=true" width="500" alt="Initialize Repository Screenshot">
 </p> 
-## Problem Solver Section
-9. Then go to linux console (Powershell Console)
+
+### Problem Solver Section
+
+9. Then go to linux console (Powershell Console) <br>
    --- At that point, you will need to make changes in the sudoers file to grant the necessary permissions for Jenkins.
 
        cd /etc
@@ -179,9 +182,9 @@ sudo mkdir /home/ubuntu/nikhil-dir
 
        sudo nano /etc/sudoers
 
-If an error occurs while making changes to the file (when you need to write or modify it),
-`W10: Warning: Changing a randomly file`
-it means you don’t have permission to edit the file — so make sure to grant the required permissions first.
+If an error occurs while making changes to the file (when you need to write or modify it), <br>
+`W10: Warning: Changing a randomly file` <br>
+it means you don’t have permission to edit the file — so make sure to grant the required permissions first. <br>
 
 10. So, grant only the specific permissions that are actually required.
 
@@ -189,7 +192,7 @@ it means you don’t have permission to edit the file — so make sure to grant 
         sudo chmod 740 sudoers
         ls -l sudoers
   <p align="center">
-  <img src=" https://github.com/nikiimisal/Jenkins/blob/main/img/Screenshot%202025-10-19%20092022.png?raw=true" width="500" alt="Initialize Repository Screenshot">
+  <img src="https://github.com/nikiimisal/Jenkins/blob/main/img/Screenshot%202025-10-19%20092022.png?raw=true" width="500" alt="Initialize Repository Screenshot">
 </p>    
    
 12. Now, make the necessary changes in the sudoers file.
