@@ -1,5 +1,5 @@
 
-# 🚀 Jenkins CI/CD Setup and Website Hosting on AWS EC2
+# 🚀 Jenkins CI/CD Setup and Build Process
 
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/iam-ganeshjadhav/Jenkins-CICD)
 [![AWS](https://img.shields.io/badge/cloud-AWS-orange)](https://aws.amazon.com/)
@@ -8,18 +8,6 @@
 
 This project demonstrates how to **install, configure, and automate Jenkins** on an **AWS EC2 instance (Ubuntu)** and how to **host a static website**.  
 It includes all steps — from EC2 setup, Jenkins installation, pipeline creation, and web hosting — with clear explanations.
-
-## 📘 Table of Contents
-
-1. [Project Overview](#project-overview)
-2. [Architecture Diagram](#architecture-diagram)  
-3. [First Step Cross the Buildup-Process](#first-step-cross-the-buildup-proces)
-4. [Requirements](#requirements)  
-5. [Step-by-Step Setup](#step-by-step-setup)    
-6. [Troubleshooting](#troubleshooting)  
-7. [Useful Commands](#useful-commands)   
-8. [Author](#author)  
-9. [License](#license)
 
 ## 🧩 Project Overview
 
@@ -32,9 +20,6 @@ This project sets up a **Jenkins CI/CD environment** on an **AWS EC2 Ubuntu inst
 - Static website hosting via Jenkins job  
 - Fully automated build and deployment pipeline  
 
-## 🏗️ Architecture Diagram
-
-![Diagram](IMG/1.png)
 
 <h1> First Step Cross the Buildup-Process</h1>
 ## ⚙️ Requirements
